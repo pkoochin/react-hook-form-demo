@@ -1,4 +1,4 @@
-import { Box, Grid, GridItem, Heading, HStack } from "@chakra-ui/react";
+import { Box, Grid, GridItem, Heading, VStack } from "@chakra-ui/react";
 import { Button } from "@sgi/gravity";
 import { useNavigate } from "react-router-dom";
 
@@ -11,10 +11,12 @@ export const HomePage = () => {
           <Heading>Which form do you want to use?</Heading>
         </GridItem>
         <GridItem colStart={2}>
-          <HStack>
+          <VStack>
             <Button onClick={() => navigate("/formik")}>Formik Form</Button>
-            <Button onClick={() => navigate("/rhf")}>React Hook Form</Button>
-          </HStack>
+            <Button onClick={() => navigate("/rhfUncontrolled")}>
+              React Hook Form - Uncontrolled
+            </Button>
+          </VStack>
         </GridItem>
       </Grid>
     </Box>

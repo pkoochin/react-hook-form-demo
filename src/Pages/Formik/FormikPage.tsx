@@ -1,52 +1,48 @@
 import { VStack } from "@chakra-ui/react";
-import { Button, FormControl, Input } from "@sgi/gravity";
+import { Button, Input } from "@sgi/gravity";
 import { useFormik } from "formik";
 import demoValidationSchema from "../../Validation/ValidationSchema";
 
+let renderCount = 0;
 const FormikPage = () => {
   const formik = useFormik({
     initialValues: { firstName: "", lastName: "" },
-    onSubmit: () => {
-      console.log("Submitting in Formik");
+    onSubmit: (data: any) => {
+      console.log("Submitting in Formik: ", data);
     },
     validationSchema: demoValidationSchema,
     enableReinitialize: true,
   });
 
-  return (
-    <>
-      <form onSubmit={formik.handleSubmit}>
-        <VStack>
-          <FormControl name="firstName">
-            <Input
-              isRequired
-              id="firstName"
-              label="First Name"
-              name="firstName"
-              value={formik.values.firstName}
-              error={
-                formik.touched.firstName ? formik.errors.firstName : undefined
-              }
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-            />
-          </FormControl>
-          <Input
-            isRequired
-            label="Last Name"
-            name="lastName"
-            value={formik.values.lastName}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            error={formik.touched.lastName ? formik.errors.lastName : undefined}
-          />
+  console.log("Render Count: ", ++renderCount);
 
-          <Button variant="primary" type="submit">
-            Submit
-          </Button>
-        </VStack>
-      </form>
-    </>
+  return (
+    <form onSubmit={formik.handleSubmit}>
+      <VStack>
+        <Input
+          isRequired
+          id="firstName"
+          label="First Name"
+          name="firstName"
+          value={formik.values.firstName}
+          error={formik.touched.firstName ? formik.errors.firstName : undefined}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+        />
+
+        <Input
+          isRequired
+          label="Last Name"
+          name="lastName"
+          value={formik.values.lastName}
+          onChange={formik.handleChange}
+          onBlur={formik.handleBlur}
+          error={formik.touched.lastName ? formik.errors.lastName : undefined}
+        />
+
+        <Button type="submit">Submit</Button>
+      </VStack>
+    </form>
   );
 };
 
