@@ -1,5 +1,5 @@
 import { Box, VStack } from "@chakra-ui/react";
-import { Button, Input } from "@sgi/gravity";
+import { Button, Input, Typography } from "@sgi/gravity";
 import { useFormik } from "formik";
 import demoValidationSchema from "../../Validation/ValidationSchema";
 
@@ -25,6 +25,7 @@ const FormikPage = () => {
     <Box bg="white" p={8} rounded="xl">
       <form onSubmit={formik.handleSubmit}>
         <VStack>
+          <Typography variant="h2">Formik</Typography>
           <Input
             isRequired
             id="firstName"

@@ -1,6 +1,6 @@
 import { Box, VStack } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Button, Input } from "@sgi/gravity";
+import { Button, Input, Typography } from "@sgi/gravity";
 import { Controller, useForm } from "react-hook-form";
 import demoValidationSchema from "../../Validation/ValidationSchema";
 
@@ -30,6 +30,7 @@ const RHFControlledPage = () => {
   return (
     <Box bg="white" p={8} rounded="xl">
       <form onSubmit={handleSubmit(onSubmitHandler)}>
+        <Typography variant="h2">React Hook Form - Controlled</Typography>
         <VStack>
           <Controller
             name="firstName"
