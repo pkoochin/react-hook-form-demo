@@ -69,17 +69,17 @@ const RHFDynamicPage = () => {
               </Button>
             </HStack>
           ))}
-          <HStack>
-            <Button
-              type="button"
-              onClick={() => {
-                append({ name: "" });
-              }}
-            >
-              + NickName
-            </Button>
-            <Button type="submit">Submit</Button>
-          </HStack>
+          <Button
+            type="button"
+            variant="secondary"
+            onClick={() => {
+              append({ name: "" });
+            }}
+          >
+            + NickName
+          </Button>
+
+          <Button type="submit">Submit</Button>
         </VStack>
       </form>
     </Box>
