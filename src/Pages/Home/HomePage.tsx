@@ -16,6 +16,9 @@ export const HomePage = () => {
             <Button onClick={() => navigate("/rhfControlled")}>
               React Hook Form - Controlled
             </Button>
+            <Button onClick={() => navigate("/rhfDynamic")}>
+              React Hook Form - Dynamic
+            </Button>
           </VStack>
         </GridItem>
       </Grid>

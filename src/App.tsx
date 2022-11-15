@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import FormikPage from "./Pages/Formik/FormikPage";
 import HomePage from "./Pages/Home/HomePage";
 import RHFControlledPage from "./Pages/RHFControlled/RHFControlledPage";
+import RHFDynamicPage from "./Pages/RHFDynamic/RHFDynamicPage";
 import RHFUncontrolledPage from "./Pages/RHFUncontrolled/RHFUncontrolledPage";
 
 export const App = () => {
@@ -13,6 +14,7 @@ export const App = () => {
         <Route path="/formik" element={<FormikPage />} />
         <Route path="/rhfUncontrolled" element={<RHFUncontrolledPage />} />
         <Route path="/rhfControlled" element={<RHFControlledPage />} />
+        <Route path="/rhfDynamic" element={<RHFDynamicPage />} />
       </Routes>
     </Flex>
   );
