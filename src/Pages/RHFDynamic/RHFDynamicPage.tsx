@@ -54,7 +54,7 @@ const RHFDynamicPage = () => {
           />
 
           {fields.map((field, index) => (
-            <HStack key={`${field.name}.index`}>
+            <HStack key={`${field.name}.${index}`}>
               <Input
                 label="Nickname"
                 {...register(`nickNames.${index}.name`)}
