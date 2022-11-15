@@ -13,7 +13,7 @@ export const demoValidationSchema = Yup.object().shape({
       Yup.object().shape({
         name:Yup.string()       
         .min(2, "Nickname is too short")
-        .max(50, "Nickname is too long")
+        .max(8, "Nickname is too long")
     }))
   });
 
