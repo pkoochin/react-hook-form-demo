@@ -1,5 +1,5 @@
 import { Box, VStack } from "@chakra-ui/react";
-import { Button, Input, Typography } from "@sgi/gravity";
+import { Button, Input, Typography, useToast } from "@sgi/gravity";
 import { useFormik } from "formik";
 import demoValidationSchema from "../../Validation/ValidationSchema";
 
@@ -10,9 +10,19 @@ const defaultValues = {
 };
 
 const FormikPage = () => {
+  const { showToast } = useToast();
   const formik = useFormik({
     initialValues: defaultValues,
     onSubmit: (data: any) => {
+      showToast({
+        title: "Submitted Data",
+        description: (
+          <ul>
+            <li>First Name: {formik.values.firstName}</li>
+            <li>Last Name: {formik.values.lastName}</li>
+          </ul>
+        ),
+      });
       console.log("Submitting in Formik: ", data);
     },
     validationSchema: demoValidationSchema,

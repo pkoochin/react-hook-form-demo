@@ -1,6 +1,6 @@
 import { Box, VStack } from "@chakra-ui/react";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Button, Input, Typography } from "@sgi/gravity";
+import { Button, Input, Typography, useToast } from "@sgi/gravity";
 import { useForm } from "react-hook-form";
 import demoValidationSchema from "../../Validation/ValidationSchema";
 
@@ -11,10 +11,12 @@ const defaultValues = {
 };
 
 const RHFUncontrolledPage = () => {
+  const { showToast } = useToast();
   const {
     register,
     handleSubmit,
     formState: { errors },
+    getValues,
   } = useForm({
     defaultValues: defaultValues,
     mode: "onBlur",
@@ -22,6 +24,15 @@ const RHFUncontrolledPage = () => {
   });
 
   const onSubmitHandler = (data: any) => {
+    showToast({
+      title: "Submitted Data",
+      description: (
+        <ul>
+          <li>First Name: {getValues("firstName")}</li>
+          <li>Last Name: {getValues("lastName")}</li>
+        </ul>
+      ),
+    });
     console.log("Submitting in React Hook Form uncontrolled: ", data);
   };
 
